@@ -1,0 +1,84 @@
+<thy-layout>
+  <div class="portal">
+    <thy-sidebar class="app-nav" style="background-color:black;">
+      <img class="logo" src="/assets/images/logo.svg" />
+      <thy-nav [thyVertical]="'true'" class="mt-2" [thyType]="'primary'">
+        <a
+          thyNavLink
+          thyTooltip="App1"
+          [routerLink]="['/app1']"
+          routerLinkActive="active"
+          thyTooltip="App1"
+          thyTooltipPlacement="right"
+        >
+        App 1
+         
+        </a>
+        <a thyNavLink [routerLink]="['/app2']" routerLinkActive="active" thyTooltip="App2" thyTooltipPlacement="right">
+          App 2
+        </a>
+        <a
+          thyNavLink
+          [routerLink]="['/about']"
+          routerLinkActive="active"
+          thyTooltip="About"
+          thyTooltipPlacement="right"
+        >
+          About
+        </a>
+        <a
+          thyNavLink
+          [routerLink]="['projects/app4']"
+          routerLinkActive="active"
+          thyTooltip="app4"
+          thyTooltipPlacement="right"
+        >
+          App 4
+        </a>
+        <a
+          thyNavLink
+          [routerLink]="['/settings']"
+          routerLinkActive="active"
+          thyTooltip="Settings"
+          thyTooltipPlacement="right"
+          >
+          Settings
+        </a>
+        <a
+          thyNavLink
+          href="javascript:;"
+          [thyPopover]="more"
+          thyPlacement="right"
+          thyTooltip="More"
+          thyTooltipPlacement="right"
+        >
+          <thy-icon thyIconName="more"></thy-icon>
+        </a>
+
+        <ng-template #more>
+          <thy-action-menu>
+            <a thyActionMenuItem routerLinkActive="active" [routerLink]="['/app1/dashboard']">
+              <span thyActionMenuItemIcon>
+                <thy-icon thyIconName="house"></thy-icon>
+              </span>
+              <span thyActionMenuItemName>To App1's dashboard</span>
+            </a>
+            <a thyActionMenuItem routerLinkActive="active" [routerLink]="['/app1/users']">
+              <span thyActionMenuItemIcon>
+                <thy-icon thyIconName="user-group"></thy-icon>
+              </span>
+              <span thyActionMenuItemName>To App1's users</span>
+            </a>
+          </thy-action-menu>
+        </ng-template>
+      </thy-nav>
+    </thy-sidebar>
+  </div>
+  <div id="app-host-container" class="thy-layout" [ngClass]="{ hide: !loadingDone }">
+    <div class="portal portal-container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <thy-loading class="portal" *ngIf="!loadingDone" [thyDone]="loadingDone"></thy-loading>
+</thy-layout>

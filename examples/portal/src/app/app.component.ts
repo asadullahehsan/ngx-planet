@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
         this.planet.setOptions({
             switchMode: SwitchModes.coexist,
             errorHandler: error => {
-                this.thyNotify.error(`错误`, '加载资源失败');
+                this.thyNotify.error('Mistake', 'Failed to load resource');
                 console.error(error);
             },
             debugFactory: debug
@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
                 styles: ['styles.css'],
                 manifest: '/static/app1/assets-manifest.json',
                 extra: {
-                    name: '应用1',
+                    name: 'Application 1',
                     color: '#ffa415'
                 }
             },
